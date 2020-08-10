@@ -95,6 +95,29 @@ db=mongo.connect(url, {
                           
                           
                           
-      // End point for deleing document for given State and county
                           
-                
+                          
+                          
+                          
+                          
+      // End point for deleting document for given State and county
+   
+                          
+                          
+                          
+                          
+                          
+                          
+      // Endpoint for display cases were cases were displaed more than once
+                          
+         collection.find({Cases:{$gte:"1"}},{_id:5f194e500f6234504463683c}).limit(4000000).toArray(  // select all having age >23
+                                          (err, result) => {
+                                                            if (err){console.log("error in writing the data")}
+                                                             console.log("Reteriving data forage > 40000000 ")//,result)
+                                              
+                                                             //myArray.forEach(function(element) { console.log(element);});/* outputs:onetwothreefour*/
+                                                             result.forEach(function(element,i) { console.log(element,i);});
+                                                            return 
+                                                          })
+      
+             
