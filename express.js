@@ -6,6 +6,10 @@ app.listen(3000, function(){
     console.log('webserver is running on port 3000S')
 }) 
 app.use(bodyParser.urlencoded({ extended: false }));
+app.get('/', function(req,res){
+
+  res.send('Hello')
+})
 
 app.get('/list', function(req,res){
 
