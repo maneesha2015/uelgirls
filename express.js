@@ -71,6 +71,10 @@ db=mongo.connect(url, {
                                         return 
                                       })
     
+    
+    
+    
+    
     // Endponing for total number of county and states
     
       collection.find({County:{$eq:"Los Angeles"}},{State:Califonia}).limit(20000).toArray(  // select all having age >23
