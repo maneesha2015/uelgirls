@@ -70,4 +70,21 @@ db=mongo.connect(url, {
                                          result.forEach(function(element,i) { console.log(element,i);});
                                         return 
                                       })
-                      
+    
+    // Endponing for total number of county and states
+    
+      collection.find({County:{$eq:"Los Angeles"}},{State:Califonia}).limit(20000).toArray(  // select all having age >23
+                                          (err, result) => {
+                                                            if (err){console.log("error in writing the data")}
+                                                             console.log("Reteriving data forage > 12 ")//,result)
+                                                            //myArray.forEach(function(element) { console.log(element);});/* outputs:onetwothreefour*/
+                                                             result.forEach(function(element,i) { console.log(element,i);});
+                                                            return 
+                                                          })
+                      // uncomment to show how async work
+                      //console.log("Count:",collection.find({Age:{$gte:"23"}}).count())    
+                      collection.find({County:{$eq:"Los Angeles"}},{State:Califoria}).count(   // select all having age >23
+                      (err, result) => {
+                                        if (err){console.log("error in writing the data")}
+                                         console.log("count ",result)//,result)
+                      }
