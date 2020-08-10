@@ -44,4 +44,30 @@ app.get('/list', function(req,res){
             }
 
     )
-      
+   // Output for seeing first 20 records of the data
+    
+const mongo = require('mongodb').MongoClient
+const url = 'mongodb://localhost:27017'
+DatabaseName='missronadb'
+TableName='missrona'
+db=mongo.connect(url, {
+    //useNewUrlParser: true,
+     useUnifiedTopology: true},
+      (err, client) => {
+                      if (err) {
+                                console.error(err)
+                                return
+                               }
+                      console.log("Connected to server")
+                      const db = client.db(DatabaseName)
+                      const collection = db.collection(TableName) 
+                      //collection.insertOne({name: TableName}, 
+                      collection.find({},{Date:21/01/2020}).limit(20).toArray(  // find returs a curse 
+                      (err, result) => {
+                                        if (err){console.log("error in writing the data")}
+                                         //console.log("Reteriving data ",result)
+                                         //myArray.forEach(function(element) { console.log(element);});/* outputs:onetwothreefour*/
+                                         result.forEach(function(element,i) { console.log(element,i);});
+                                        return 
+                                      })
+                      
