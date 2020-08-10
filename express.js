@@ -62,7 +62,7 @@ db=mongo.connect(url, {
                       const db = client.db(DatabaseName)
                       const collection = db.collection(TableName) 
                       //collection.insertOne({name: TableName}, 
-                      collection.find({},{Date:21/01/2020}).limit(20).toArray(  // find returs a curse 
+                      collection.find({},{_id:5f194e500f6234504463683c}).limit(20).toArray(  // find returs a curse 
                       (err, result) => {
                                         if (err){console.log("error in writing the data")}
                                          //console.log("Reteriving data ",result)
@@ -77,7 +77,7 @@ db=mongo.connect(url, {
     
     // Endponing for total number of county and states
     
-      collection.find({County:{$eq:"Los Angeles"}},{State:Califonia}).limit(20000).toArray(  // select all having age >23
+      collection.find({County:{$eq:"Los Angeles"}},{State:Califonia},{_id:5f194e500f6234504463683c).limit(2000000).toArray(  // select all having age >23
                                           (err, result) => {
                                                             if (err){console.log("error in writing the data")}
                                                              console.log("Reteriving data forage > 12 ")//,result)
@@ -92,3 +92,9 @@ db=mongo.connect(url, {
                                         if (err){console.log("error in writing the data")}
                                          console.log("count ",result)//,result)
                       }
+                          
+                          
+                          
+      // End point for deleing document for given State and county
+                          
+                
