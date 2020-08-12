@@ -120,4 +120,34 @@ db=mongo.connect(url, {
                                                             return 
                                                           })
       
+      
+      
+      
+      
+      // mongodb connection
+      
+      const mongo = require('mongodb').MongoClient
+const url = 'mongodb://localhost:27017'
+DatabaseName='missronadb'
+TableName='missrona'
+db=mongo.connect(url, {
+ //useNewUrlParser: true,
+ useUnifiedTopology: true},
+ (err, client) => {
+ if (err) {
+ console.error(err)
+ return
+ }
+ console.log("Connected to server")
+ const db = client.db(DatabaseName)
+ const collection = db.collection(TableName)
+ })
+
+ //collection.insertOne({name: TableName}, 
+ collection.find({},{_id:0}).limit(3).toArray( // find returs a curse 
+  (err, result) => {
+  if (err){console.log("error in writing the data")}
+  })
+
+      
              
