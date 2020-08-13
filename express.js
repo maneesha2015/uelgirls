@@ -150,4 +150,124 @@ db=mongo.connect(url, {
   })
 
       
+ 
+      
+      
+  
+      
+      
+      
+ const Express = require("express");
+const BodyParser = require("body-parser");
+const MongoClient = require("mongodb").MongoClient;
+const ObjectId = require("mongodb").ObjectID;
+const CONNECTION_URL = "mongodb://localhost:27017";
+const DATABASE_NAME = "missronadb";
+var app = Express();
+app.use(BodyParser.json());
+app.use(BodyParser.urlencoded({ extended: true }));
+
+const documentSchema = new Schema({
+  _id: ObjectId,
+  date: String,
+  county: String,
+  state: String,
+  cases: Number,
+  deaths: Number
+});
+
+const documentModel = mongoose.model('Documents', documentSchema);
+
+app.listen(4000, () => {
+  
+  MongoClient.connect(CONNECTION_URL, { useUnifiedTopology: true }, (error, client) => {
+    if (error) {
+      throw error;
+    }
+    database = client.db(DATABASE_NAME);
+    collection = database.collection("personnel");
+    console.log("Connected to `" + DATABASE_NAME + "`!");
+  });
+
+  console.log('Webserver is running on port 4000')
+  app.get('/', function(req,res){res.send('This is for my university coursework')})
+
+  app.post("/documents", (req, res) => {
+    collection.insert(req.body, (error, res) => {
+        if(error) {
+            return res.status(500).send(error);
+        }
+        res.send(result.result);
+    });
+  });
+
+  app.get("/missrona", (req, res) => {
+    collection.find({}).toArray((error, res) => {
+      if (error) {
+        return res.status(500).send(error);
+      }
+      res.send(result);
+    });
+  });
+
+  app.get("/documents/:id", (request, response) => {
+    collection.findOne({"_id":new ObjectId(request.params.id)}, (error, result) => {
+        if(error) {
+            return response.status(500).send(error);
+        }
+        response.send(result);
+    });
+  });
+});
+
+
+//bodyParser = require("body-parser");
+//app = express()
+//app.listen(4000, function(){
+
+  //  console.log('webserver is running on port 4000')
+//}) 
+//app.use(bodyParser.urlencoded({ extended: false }));
+//app.get('/', function(req,res){res.send('This is for my university coursework')
+//})
+
+//app.get('/list', function(req,res){
+
+  //res.send('type a message')
+//})
+
+
+
+//var MongoClient = require('mongodb').MongoClient;
+//var url = "mongodb://localhost:27017"
+
+//MongoClient.connect(url, function(err, db) {
+  //if (err) throw err;
+  //var dbo = db.db('missronadb');
+  //console.log(find.missronadb);
+  //db.close();
+//});
+
+
+//var MongoClient = require('mongodb').MongoClient
+
+//var url = 'mongodb://localhost:27017'
+
+const mongo = require('mongodb').MongoClient
+const url = 'mongodb://localhost:27017'
+DatabaseName='missronadb'
+TableName='missrona'
+db=mongo.connect(url, {
+// useNewUrlParser: true,
+ useUnifiedTopology: true},
+ (err, client) => {
+ if (err) {
+ console.error(err)
+ return
+ }
+ console.log("Connected to server")
+ const db = client.db(DatabaseName)
+ const collection = db.collection(TableName)
+})
+
              
