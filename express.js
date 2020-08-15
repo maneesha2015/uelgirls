@@ -274,16 +274,17 @@ db=mongo.connect(url, {
       
       
       
-//code for button to insert data
+//code for button to insert data, front web server
 <html>
 <body>
 
 <h2>Covid19 Data</h2>
 
 <button onclick="document.location='default.asp'">Add Data</button>
-<button onclick="document.location='default.asp'">Update Data</button>
+<button onclick="document.location='default.asp'">Update Data</button> 
+      //alll data needs to bes displayed button when clicked show updaated 
 <button onclick="document.location='default.asp'">Total Deaths/Cases</button>
-<button onclick="document.location='default.asp'">Delete Document</button>
+//<button onclick="document.location='default.asp'">Delete Document</button>
 <button onclick="document.location='default.asp'">First 20 Documents</button>
 <button onclick="document.location='default.asp'">More than 1 case oer day</button>
 //<button onclick="document.location='default.asp'">Laptop information</button>
@@ -293,7 +294,7 @@ db=mongo.connect(url, {
       
       
       
-//adding data
+//adding data button
 <h2>Add Data</h2>
 
 //<h2>Date/h2>
