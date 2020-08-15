@@ -270,7 +270,10 @@ db=mongo.connect(url, {
  const collection = db.collection(TableName)
 })
 
-             
+   
+      
+      
+      
 //code for button to insert data
 <html>
 <body>
@@ -284,6 +287,7 @@ db=mongo.connect(url, {
 <button onclick="document.location='default.asp'">First 20 Documents</button>
 <button onclick="document.location='default.asp'">More than 1 case oer day</button>
 //<button onclick="document.location='default.asp'">Laptop information</button>
+      
 </body>
 </html>
       
@@ -294,7 +298,7 @@ db=mongo.connect(url, {
 
 //<h2>Date/h2>
 
-<form action="/action_page.php">
+<form action="mongodb://localhost:27017/?readPreference=primary&appname=MongoDB%20Compass%20Community&ssl=false"> //where submitted data goes
   <label for="date">Date:</label>
   <input type="text" id="date" name="date"><br><br>
 
