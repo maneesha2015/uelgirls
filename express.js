@@ -283,7 +283,36 @@ db=mongo.connect(url, {
 <button onclick="document.location='default.asp'">Delete Document</button>
 <button onclick="document.location='default.asp'">First 20 Documents</button>
 <button onclick="document.location='default.asp'">More than 1 case oer day</button>
-
 //<button onclick="document.location='default.asp'">Laptop information</button>
 </body>
 </html>
+      
+      
+      
+//adding data
+<h2>Add Data</h2>
+
+//<h2>Date/h2>
+
+<form action="/action_page.php">
+  <label for="date">Date:</label>
+  <input type="text" id="date" name="date"><br><br>
+
+//<h2>County</h2>
+  <label for="county">County:</label>
+  <input type="text" id="county" name="county"><br><br>
+
+//<h2>State</h2>
+  <label for="state">State:</label>
+  <input type="text" id="state" name="state"><br><br>
+
+//<h2>Cases</h2>
+  <label for="cases">Cases:</label>
+  <input type="text" id="cases" name="cases"><br><br>
+
+//<h2>Death</h2>
+  <label for="death">Death:</label>
+  <input type="text" id="death" name="death"><br><br>
+
+<input type="submit" value="Submit">
+</form>
