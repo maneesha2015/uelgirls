@@ -271,3 +271,19 @@ db=mongo.connect(url, {
 })
 
              
+//code for button to insert data
+<html>
+<body>
+
+<h2>Covid19 Data</h2>
+
+<button onclick="document.location='default.asp'">Add Data</button>
+<button onclick="document.location='default.asp'">Update Data</button>
+<button onclick="document.location='default.asp'">Total Deaths/Cases</button>
+<button onclick="document.location='default.asp'">Delete Document</button>
+<button onclick="document.location='default.asp'">First 20 Documents</button>
+<button onclick="document.location='default.asp'">More than 1 case oer day</button>
+
+//<button onclick="document.location='default.asp'">Laptop information</button>
+</body>
+</html>
